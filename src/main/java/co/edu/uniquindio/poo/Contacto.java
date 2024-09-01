@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo;
 
+import java.util.Scanner;
+
 public class Contacto {
     private String nombre;
     private String alias;
@@ -16,6 +18,27 @@ public class Contacto {
         setDireccion(direccion);
         setTelefono(telefono);
         setEmail(email);
+    }
+    
+    //Metodo para que el usario pueda ingresar valores 
+    public static Contacto crearContacto(String text){
+        System.out.println(text);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el nombre ");
+        String nombre = scanner.nextLine();
+        System.out.print("Ingrese el alias ");
+        String alias = scanner.nextLine();
+        System.out.print("Ingrese la dirección ");
+        String direccion = scanner.nextLine();
+        System.out.print("Ingrese el telefono ");
+        String telefono = scanner.nextLine();
+        System.out.print("Ingrese el email ");
+        String email = scanner.nextLine();
+
+        Contacto contacto = new Contacto(nombre, alias, direccion, telefono, email);
+        return contacto;
+        
+
     }
 
     // Metodos get, set, toString
@@ -79,7 +102,7 @@ public class Contacto {
 
     @Override
     public String toString() {
-        return "Contacto: nombre" + nombre + ", alias " + alias + ", direccion " + direccion + ", telefono " + telefono
+        return "Contacto: nombre " + nombre + ", alias " + alias + ", direccion " + direccion + ", telefono " + telefono
                 + ", email " + email + ".";
     }
 
