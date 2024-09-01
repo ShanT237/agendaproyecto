@@ -1,7 +1,12 @@
 package co.edu.uniquindio.poo;
 
 import java.util.Scanner;
-
+/**
+ * Autores: Juan Pablo Suaréz, Oscar Mateo Moreno, Santiago Rodríguez Torres
+ * Fecha: 31/08/2024
+ * Licencia: GNU GPL V3
+ *
+ */
 public class Contacto {
     private String nombre;
     private String alias;
@@ -12,17 +17,15 @@ public class Contacto {
     // Metodos principales
     // Metodo Constructor
     public Contacto(String nombre, String alias, String direccion, String telefono, String email) {
-        //Los set verifican que el usuario ingrese los datos que corresponden 
-        setNombre(nombre);
-        setAlias(alias);
-        setDireccion(direccion);
-        setTelefono(telefono);
-        setEmail(email);
+        this.nombre = nombre;
+        this.alias = alias;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.email = email;
     }
-    
-    //Metodo para que el usario pueda ingresar valores 
-    public static Contacto crearContacto(String text){
-        System.out.println(text);
+
+    // Metodo para que el usario pueda ingresar valores
+    public static Contacto crearContacto(String texto) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el nombre ");
         String nombre = scanner.nextLine();
@@ -37,7 +40,6 @@ public class Contacto {
 
         Contacto contacto = new Contacto(nombre, alias, direccion, telefono, email);
         return contacto;
-        
 
     }
 
@@ -46,58 +48,44 @@ public class Contacto {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        if (nombre != null && !nombre.isBlank() && nombre.matches("[a-zA-Z\\s]+")) {
-            this.nombre = nombre;
-        } else {
-            throw new IllegalArgumentException("El nombre solo puede contener letras y espacios.");
-        }
-        
+    public String getEmail() {
+        return email;
     }
 
     public String getAlias() {
         return alias;
     }
 
-    public void setAlias(String alias) {
-        if (alias != null && !alias.isBlank() && alias.matches("[a-zA-Z0-9]+")) {
-            this.alias = alias;
-        } else {
-            throw new IllegalArgumentException("El alias solo puede contener letras y números.");
-        }
-        
-    }
-
     public String getDireccion() {
         return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-          assert direccion != null && !direccion.isBlank(): "La dirección no puede ser nula o vacia";
-          this.direccion = direccion;
-        
     }
 
     public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
-        if (telefono != null && !telefono.isBlank() && telefono.matches("[0-9]+")) {
-            this.telefono = telefono;
-        } else {
-            throw new IllegalArgumentException("El teléfono solo puede contener números.");
-        }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+
     }
 
-    public String getEmail() {
-        return email;
+    public void setAlias(String alias) {
+        this.alias = alias;
+
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public void setEmail(String email) {
-        assert email != null && !email.isBlank(): "El email no puede ser nulo o vacio";
         this.email = email;
-        
+
     }
 
     @Override
